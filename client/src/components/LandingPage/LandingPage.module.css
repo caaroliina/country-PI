@@ -1,0 +1,32 @@
+.background {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: rgba(255, 251, 239, 0.54); */
+    background-image: url(../../images/landing1.png);
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.container{
+    width: 50%;
+    height: 80%;
+    background-color: rgba(255, 255, 255, 0.563);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.title {
+    margin: 5% 0;
+}
+
+.button {
+    width: 150px;
+    height: 50px;
+    margin: 5% 0;
+}
