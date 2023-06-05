@@ -6,6 +6,9 @@ const Nav = () => {
     <div className={style.conteiner}>
         <NavLink className={style.link} to='/home'> Home </NavLink>
         <NavLink className={style.link} to='/form'> Form </NavLink>
+        <select name="" id="">
+            <option value=""></option>
+        </select>
 
     </div>
     )
