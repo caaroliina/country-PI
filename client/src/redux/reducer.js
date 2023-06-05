@@ -1,15 +1,26 @@
-import { GET_COUNTRIES, SET_TOTAL_PAGES, COUNTRY_BYID, SET_PAGE, SET_ITEMS_PER_PAGE, COUNTRY_BYNAME, GET_ACTIVITIES, FILTER, ORDER } from './action-type';
+import { 
+    GET_COUNTRIES,  
+    SET_TOTAL_PAGES, 
+    GET_ACTIVITIES, 
+    COUNTRY_BYID, 
+    COUNTRY_BYNAME, 
+    SET_PAGE, 
+    SET_ITEMS_PER_PAGE, 
+    FILTER, 
+    ORDER 
+} from './action-type';
 
 const initialState = {
     activities: [],
     countries: [],
     countriesOrder: [],
-    country: [],
+    country: {},
+    countryByName: {},
     pagination: {
         currentPage: 1,
         totalPages: 0,
         totalItems: 0,
-        itemsPerPage: 9,
+        itemsPerPage: 12,
         currentPageItems: [],
     },
 }
@@ -19,6 +30,8 @@ const reducer = (state = initialState, {type, payload}) => {
         case GET_COUNTRIES:
             return {...state, countries: payload };
         case COUNTRY_BYNAME:
+            return {...state, countryByName: payload};
+        case COUNTRY_BYID:
             return {...state, country: payload};
         case SET_PAGE:
             return {
@@ -46,8 +59,6 @@ const reducer = (state = initialState, {type, payload}) => {
             }
         case GET_ACTIVITIES:
             return {...state};
-        case COUNTRY_BYID:
-            return {...state, country: payload};
         case FILTER:
             let filter = [...state.countries]
             return {...state, countries: filter};

@@ -15,8 +15,8 @@ const Form = () => {
     })
 
     const validate = (form) => {
-        if(!form.name) setError({error, name: 'El nombre no puede estar vacio'})
-        if (/^[a-zA-Z]{5,24}$/.test(form.name)) setError({error, name: 'el nombre debe ser mayor a 4 caracteres y menor a 25 caracteres'})
+        if(!form.name) setError({...error, name: 'El nombre no puede estar vacio'})
+        if (/^[a-zA-Z]{5,24}$/.test(form.name)) setError({...error, name: 'el nombre debe ser mayor a 4 caracteres y menor a 25 caracteres'})
     }
 
     const submitHandler = (event) => {
@@ -34,11 +34,7 @@ const Form = () => {
 
     return <div className={style.container}>
         <form className={style.form} onSubmit={submitHandler}>
-            <label className={style.label} htmlFor="name"> Activity Name 
-                <input className={style.input} type="text" value={form.name} name="name" onChange={handleChange} ></input>
-            </label> 
-
-            <label className={style.label} htmlFor="difficulty"> Difficulty 
+                <label className={style.label} htmlFor="difficulty"> Difficulty 
                 <input className={style.input} type="text" value={form.difficulty} name="difficulty" onChange={handleChange}></input>
             </label>
 
@@ -47,12 +43,12 @@ const Form = () => {
             </label> 
 
             <label className={style.label} htmlFor="season"> Season  
-            <select className={style.select} value={form.season} onChange={handleChange} name="season">
-                <option value="spring"> Spring </option>
-                <option value="summer"> Summer </option>
-                <option value="winter"> Winter </option>
-                <option value="autumn"> Autumn </option>
-            </select>
+                <select className={style.select} value={form.season} onChange={handleChange} name="season">
+                    <option value="spring"> Spring </option>
+                    <option value="summer"> Summer </option>
+                    <option value="winter"> Winter </option>
+                    <option value="autumn"> Autumn </option>
+                </select>
             </label>
 
             <button type='submit'> Add activity </button>

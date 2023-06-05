@@ -7,7 +7,6 @@ import Card from '../Card/Card';
 
 const Detail = () => {
     const { id } = useParams();
-    console.log(id);
     const country = useSelector((state) => state.country);
     const dispatch = useDispatch();
 

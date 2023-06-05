@@ -24,7 +24,7 @@ export const countryById = (id) => {
 
 export const countryByName = (name) => {
     return async function(dispatch){
-        const response = await axios(`http://localhost:3001/countries?name=${name}`)
+        const response = await axios.get(`http://localhost:3001/countries?name=${name}`)
         const country = response.data
         return dispatch({
             type: COUNTRY_BYNAME,
@@ -35,7 +35,7 @@ export const countryByName = (name) => {
 
 export const getActivities = () => {
     return async function(dispatch){
-        const response = (await axios(`http://localhost:3001/activities`)).data
+        const response = (await axios.get(`http://localhost:3001/activities`)).data
         return dispatch({
             type: GET_ACTIVITIES,
             payload: response,
