@@ -22,6 +22,7 @@ const Detail = () => {
                 name= { country?.name }
                 flagImg= { country?.flagImg }
                 capital= { country?.capital }
+                region={country?.region}
                 subregion= { country?.subregion }
                 population= { country?.population }
             />

@@ -17,6 +17,7 @@ const process = async (array) => {
             id: elem.alpha3Code,
             name: elem.name,
             flagImg: elem.flags.png,
+            region: elem.region,
             capital: elem.capital ? elem.capital : null,
             subregion: elem.subregion,
             population: elem.population

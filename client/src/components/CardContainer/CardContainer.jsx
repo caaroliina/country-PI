@@ -12,9 +12,11 @@ const CardContainer = () => {
     const dispatch = useDispatch();
 
     const countries = useSelector(state => state.countries);
+    // eslint-disable-next-line
     const [filter, setFilter] = useState("");
     const [country, setCountry] = useState("");
     const [countriesCopy, setCountriesCopy] = useState([]);
+    const [regionFilter, setRegionFilter] = useState("");
 
   // paginado
     const { currentPage, totalPages, itemsPerPage } = useSelector((state) => state.pagination);
@@ -26,7 +28,7 @@ const CardContainer = () => {
     const handlePageChange = (page) => {
     dispatch(setPage(page));
     };
-
+    // eslint-disable-next-line
     const handleFilter = (event) => {
     setFilter(event.target.value);
     };
@@ -34,6 +36,18 @@ const CardContainer = () => {
     const handleOrder = (event) => {
     setCountry(event.target.value);
     };
+
+    const handleRegionFilter = (event) => {
+        setRegionFilter(event.target.value);
+    };
+
+    useEffect(() => {
+        let filteredCountries = countries;
+        if (regionFilter && regionFilter !== "All") {
+            filteredCountries = countries.filter((country) => country.region === regionFilter);
+        }
+        setCountriesCopy(filteredCountries);
+    }, [regionFilter, countries]);
 
     useEffect(() => {
         let sortedCountries = [...countries];
@@ -64,14 +78,15 @@ const CardContainer = () => {
     <div className={style.container}>
         <SearchBar />
 
-        <select className={style.selects} value={filter} onChange={handleFilter}>
-            <option value="" hidden>Continent</option>
+        <select className={style.selects} value={regionFilter} onChange={handleRegionFilter}>
+            <option value="" hidden>Region</option>
             <option value="All">All</option>
             <option value="Africa">Africa</option>
             <option value="Americas">Americas</option>
             <option value="Asia">Asia</option>
             <option value="Europe">Europe</option>
             <option value="Oceania">Oceania</option>
+            <option value="Polar">Polar</option>
         </select>
 
         <select className={style.selects} value={country} onChange={handleOrder}>
@@ -89,6 +104,7 @@ const CardContainer = () => {
                 id={country.id}
                 name={country.name}
                 flagImg={country.flagImg}
+                region={country.region}
                 capital={country.capital}
                 subregion={country.subregion}
                 population={country.population}
