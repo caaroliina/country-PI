@@ -8,6 +8,7 @@ import {
     SET_TOTAL_PAGES, 
     SET_ITEMS_PER_PAGE, 
     SET_PAGE, 
+
 } from './action-type';
 import axios from 'axios'
 
@@ -64,4 +65,3 @@ export const setItemsPerPage = (itemsPerPage) => ({
     type: SET_ITEMS_PER_PAGE,
     payload: itemsPerPage,
 });
-

@@ -1,18 +1,21 @@
 import { 
     GET_COUNTRIES,  
-    SET_TOTAL_PAGES, 
     GET_ACTIVITIES, 
+
     COUNTRY_BYID, 
     COUNTRY_BYNAME, 
+    
+    SET_TOTAL_PAGES, 
     SET_PAGE, 
     SET_ITEMS_PER_PAGE,
+
 } from './action-type';
 
 const initialState = {
     activities: [],
     countries: [],
-    filteredCountries: [],
     country: {},
+    
     countryByName: {},
     pagination: {
         currentPage: 1,
@@ -62,7 +65,7 @@ const reducer = (state = initialState, {type, payload}) => {
                 totalPages: payload,
                 },
             }
-        
+
         default:
             return {...state};
     }
