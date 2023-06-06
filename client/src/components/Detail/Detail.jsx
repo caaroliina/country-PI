@@ -18,12 +18,12 @@ const Detail = () => {
         <div className={style.container}>
             <h1> pag del detail </h1>
             <Card 
-                id= { country.id }
-                name= { country.name }
-                flagImg= { country.flagImg }
-                capital= { country.capital }
-                subregion= { country.subregion }
-                population= { country.population }
+                id= { country?.id }
+                name= { country?.name }
+                flagImg= { country?.flagImg }
+                capital= { country?.capital }
+                subregion= { country?.subregion }
+                population= { country?.population }
             />
         </div>
     )

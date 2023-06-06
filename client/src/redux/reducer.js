@@ -5,15 +5,13 @@ import {
     COUNTRY_BYID, 
     COUNTRY_BYNAME, 
     SET_PAGE, 
-    SET_ITEMS_PER_PAGE, 
-    FILTER, 
-    ORDER 
+    SET_ITEMS_PER_PAGE,
 } from './action-type';
 
 const initialState = {
     activities: [],
     countries: [],
-    countriesOrder: [],
+    filteredCountries: [],
     country: {},
     countryByName: {},
     pagination: {
@@ -27,12 +25,19 @@ const initialState = {
 
 const reducer = (state = initialState, {type, payload}) => {
     switch (type) {
+        //GET ALL
         case GET_COUNTRIES:
             return {...state, countries: payload };
+        case GET_ACTIVITIES:
+            return {...state};
+
+        //SEARCH BY
         case COUNTRY_BYNAME:
             return {...state, countryByName: payload};
         case COUNTRY_BYID:
             return {...state, country: payload};
+
+        //PAGINADO
         case SET_PAGE:
             return {
                 ...state,
@@ -57,19 +62,7 @@ const reducer = (state = initialState, {type, payload}) => {
                 totalPages: payload,
                 },
             }
-        case GET_ACTIVITIES:
-            return {...state};
-        case FILTER:
-            let filter = [...state.countries]
-            return {...state, countries: filter};
-        case ORDER:
-            const orders = [...state.countriesOrder]
-            return {
-                ...state,
-                myFavorites:  payload === 'A' 
-                ? orders.sort((a, b)=> a.id - b.id) 
-                : orders.sort((a, b)=> b.id - a.id),
-            }
+        
         default:
             return {...state};
     }

@@ -17,7 +17,7 @@ const Home  = () =>{
         
         <div className={style.container}>
             <div className={style.search}>
-                <SearchBar />
+                
             </div>
             <div className={style.cards}>
                 <CardContainer />

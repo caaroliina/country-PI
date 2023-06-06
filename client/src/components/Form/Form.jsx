@@ -34,12 +34,23 @@ const Form = () => {
 
     return <div className={style.container}>
         <form className={style.form} onSubmit={submitHandler}>
-                <label className={style.label} htmlFor="difficulty"> Difficulty 
-                <input className={style.input} type="text" value={form.difficulty} name="difficulty" onChange={handleChange}></input>
+            <label className={style.label} htmlFor="difficulty"> Difficulty 
+                <select className={style.select} value={form.difficulty} name="difficulty" onChange={handleChange}>
+                    <option value="1"> 1 </option>
+                    <option value="3"> 2 </option>
+                    <option value="2"> 3 </option>
+                    <option value="4"> 4 </option>
+                    <option value="5"> 5 </option>
+                </select>
             </label>
 
             <label className={style.label} htmlFor="duration"> Duration 
-                <input className={style.input} type="text" value={form.duration} name="duration" onChange={handleChange}></input>
+            <select className={style.select} value={form.duration} name="duration" onChange={handleChange}>
+                <option value="1 a 3"> De 1 a 3 hs</option>
+                <option value="hasta 5 hs">Hasta 5 hs</option>
+                <option value="hasta 10 hs">Hasta 10 hs</option>
+                <option value="mas de 10 hs"> Mas de 10 hs</option>
+            </select>
             </label> 
 
             <label className={style.label} htmlFor="season"> Season  

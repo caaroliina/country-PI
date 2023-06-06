@@ -1,34 +1,38 @@
 import style from './SearchBar.module.css';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { countryByName } from '../../redux/action'
-import { NavLink } from 'react-router-dom';
 
 const SearchBar = () => {
     const [name, setName] = useState('');
     const dispatch = useDispatch();
-    const country = useSelector(state => state.countryByName)
 
     const handleChange = (event) => {
         setName(event.target.value)
     }
+
+    const handleEnter = (event) => {
+        if (event.key === 'Enter') {
+            setName(name);
+            setName("")
+        }
+    }
     
-    const handleAlgo = () => {
+    const handleClick = () => {
         dispatch(countryByName(name))
     }
 
     return (
-        <div className={style.conteiner}>
-            <input className={style.input} 
-            type='text' 
-            value={ name }
-            onChange={ handleChange }
-            />
-    <NavLink to={`/detail/${country.id}`}> 
-            <button className={style.button} onClick={handleAlgo}> Search </button>
-    </NavLink>
+                <div className={style.conteiner}>
+                    <input className={style.input} 
+                    type='text' 
+                    value={ name }
+                    onChange={ handleChange }
+                    />
+                    <button className={style.button} onClick={handleClick}> Search </button>
 
-        </div>
+            </div>
+        
     )
 }
 
