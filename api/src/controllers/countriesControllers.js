@@ -1,4 +1,5 @@
 const { Country, Activity } = require('../db.js');
+const { Op } = require('sequelize')
 const axios = require('axios')
 
 const getCountriesById = async (idPais) => {
@@ -8,7 +9,7 @@ const getCountriesById = async (idPais) => {
 }
 
 const searchCountry = async (name) => {
-    return await Country.findOne({where: {name: name}})
+    return await Country.findAll({where: {name:{[Op.like]: `%${name}%`}}})
 }
 
 const process = async (array) => {

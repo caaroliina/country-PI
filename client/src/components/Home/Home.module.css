@@ -4,19 +4,16 @@
 }
 
 .container {
-    /* background-image: url('https://www.youtube.com/watch?v=J6xMxFboPJc'); */
-    background: #dfe9f1;
+    /* width: 100vw;
+    height: 100vh;
+    background: #dfe9f1; */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    
 }
 
-.search{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .cards{
     display: flex;

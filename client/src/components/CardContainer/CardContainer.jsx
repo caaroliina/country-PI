@@ -76,26 +76,29 @@ const CardContainer = () => {
 
     return (
     <div className={style.container}>
-        <SearchBar />
+        <div className={style.order}>
+            <SearchBar/>
+            <div className={style.selects}>
+                <select className={style.select} value={regionFilter} onChange={handleRegionFilter}>
+                    <option value="" hidden>Region</option>
+                    <option value="All">All</option>
+                    <option value="Africa">Africa</option>
+                    <option value="Americas">Americas</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Europe">Europe</option>
+                    <option value="Oceania">Oceania</option>
+                    <option value="Polar">Polar</option>
+                </select>
 
-        <select className={style.selects} value={regionFilter} onChange={handleRegionFilter}>
-            <option value="" hidden>Region</option>
-            <option value="All">All</option>
-            <option value="Africa">Africa</option>
-            <option value="Americas">Americas</option>
-            <option value="Asia">Asia</option>
-            <option value="Europe">Europe</option>
-            <option value="Oceania">Oceania</option>
-            <option value="Polar">Polar</option>
-        </select>
-
-        <select className={style.selects} value={country} onChange={handleOrder}>
-            <option value="" hidden>Order</option>
-            <option value="A">A - Z</option>
-            <option value="D">Z - A</option>
-            <option value="Ascendente">More population</option>
-            <option value="Descendente">Less population</option>
-        </select>
+                <select className={style.select} value={country} onChange={handleOrder}>
+                    <option value="" hidden>Order</option>
+                    <option value="A">A - Z</option>
+                    <option value="D">Z - A</option>
+                    <option value="Ascendente">More population</option>
+                    <option value="Descendente">Less population</option>
+                </select>
+            </div>
+        </div>
 
         {
         currentPageCountries?.map(country => (
@@ -112,11 +115,11 @@ const CardContainer = () => {
         ))
         }
         <div className={style.paginado}>
-        <Paginado
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={handlePageChange}
-        />
+            <Paginado
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+            />
         </div>
     </div>
     );

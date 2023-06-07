@@ -1,16 +1,74 @@
-.container{
-    width: 100vw;
+.container {
     height: 100vh;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.form{
-    width: 70%;
-    height: 80%;
+.form {
+    width: 60%;
+    height: 90%;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+}
+
+.label {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.name {
+    width: 200px;
+    height: 30px;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.select {
+    width: 200px;
+    height: 35px;
+    margin-top: 5px;
+}
+
+.renderContainer{
+    width: 90%;
+    height: 150px;
+    margin-top: 10px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #4583a058;
+}
+
+.renderCountry {
+    width: 200px;
+    height: 20px;
+}
+
+.button {
+    
+    margin-top: 10px;
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: #59949b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #34565b;
 }

@@ -16,7 +16,6 @@ const Detail = () => {
 
     return (
         <div className={style.container}>
-            <h1> pag del detail </h1>
             <Card 
                 id= { country?.id }
                 name= { country?.name }

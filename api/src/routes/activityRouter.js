@@ -7,6 +7,6 @@ const activityRouter = Router();
 
 activityRouter.get('/', getActivities)
 
-activityRouter.post('/', validate, postActivities)
+activityRouter.post('/', postActivities)
 
 module.exports = activityRouter;

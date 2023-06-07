@@ -15,9 +15,6 @@ const Home  = () =>{
     return (
         
         <div className={style.container}>
-            <div className={style.search}>
-                
-            </div>
             <div className={style.cards}>
                 <CardContainer />
             </div>

@@ -16,12 +16,11 @@ const initialState = {
     countries: [],
     country: {},
     
-    countryByName: {},
     pagination: {
         currentPage: 1,
         totalPages: 0,
         totalItems: 0,
-        itemsPerPage: 12,
+        itemsPerPage: 10,
         currentPageItems: [],
     },
 }
@@ -36,7 +35,7 @@ const reducer = (state = initialState, {type, payload}) => {
 
         //SEARCH BY
         case COUNTRY_BYNAME:
-            return {...state, countryByName: payload};
+            return {...state, countries: payload};
         case COUNTRY_BYID:
             return {...state, country: payload};
 

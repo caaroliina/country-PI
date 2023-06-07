@@ -6,8 +6,12 @@ const allActivities = async () => {
 }
 
 const createActivity = async ( name, difficulty, duration, season ) => {
-    const newActivity = await Activity.create( {name, difficulty, duration, season} )
-    return newActivity;
+    try {
+        const newActivity = await Activity.create({ name: name, difficulty: difficulty, duration: duration, season: season })
+        return newActivity;
+    } catch (error) {
+        alert(error.message)
+    }
 }
 
 module.exports = {

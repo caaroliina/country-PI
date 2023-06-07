@@ -1,40 +1,28 @@
 import style from "./SearchBar.module.css";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import {useDispatch} from 'react-redux'
+import {countryByName, getCountries} from '../../redux/action'
 
 function SearchBar() {
-    const navigate = useNavigate();
     const [name, setName] = useState("");
-
-    const searchCountry = async () => {
-        try {
-            const response = await axios.get(
-            `http://localhost:3001/countries?name=${name}`
-            );
-            const country = response.data;
-            const id = country.id;
-            navigate(`/detail/${id}`);
-        } catch (error) {
-            console.log("Error searching country:", error);
-        }
-    };
+    const dispatch = useDispatch();
 
     const handleChange = (event) => {
         setName(event.target.value);
+        event.target.value.length 
+        ? dispatch(countryByName(event.target.value)) 
+        : dispatch(getCountries()) 
     };
 
     return (
-        <div className={style.bonita}>
+        <div className={style.container}>
             <input
+            className={style.input}
             placeholder="Search country"
             type="search"
             value={name}
             onChange={handleChange}
             />
-            <button type="button" onClick={searchCountry}>
-            Search
-            </button>
         </div>
     );
 }
